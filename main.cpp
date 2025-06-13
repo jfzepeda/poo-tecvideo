@@ -81,10 +81,12 @@ void handleCalificar(Pelicula* pelicula) {
 }
 
 void handlePeliculas(Filmoteca& filmoteca) {
-    cout << "\n¿Deseas búsqueda regular o avanzada? (regular/avanzada): ";
-    string modo;
+    cout << "\nSelecciona el modo de búsqueda" << endl;
+    cout << "1. Regular " << endl;
+    cout << "2. Avanzada\n";
+    int modo;
     cin >> modo;
-    if (modo == "avanzada") {
+    if (modo == 2) {
         cout << "Opciones avanzadas:\n1. Filtrar por género\n2. Ordenar por calificación\nSelecciona opción (1-2): ";
         int opcionAvanzada;
         cin >> opcionAvanzada;
