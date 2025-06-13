@@ -15,7 +15,7 @@
  }
 
  void Contenido::calificar(float nuevaCalificacion) {
-     if (nuevaCalificacion >= 0 && nuevaCalificacion <= 10) {
+     if (nuevaCalificacion >= 0 && nuevaCalificacion <= 5) {
          GestorJson::escribir(id, nuevaCalificacion);
          calificacion = GestorJson::leer(id);
          mostrarCalificacion(true);

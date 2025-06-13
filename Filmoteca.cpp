@@ -21,14 +21,14 @@ using namespace std;
 
  void Filmoteca::mostrarPeliculas() const {
      cout << "\nPelículas:" << endl;
-     for (const auto* pelicula : peliculas) {
+     for (const Pelicula* pelicula : peliculas) {
          pelicula->mostrarNombre();
      }
  }
 
  void Filmoteca::mostrarSeries() const {
      cout << "\nSeries:" << endl;
-     for (const auto* serie : series) {
+     for (const Serie* serie : series) {
          serie->mostrarNombre();
      }
  }
@@ -39,7 +39,7 @@ using namespace std;
  }
 
  Pelicula* Filmoteca::buscarPeli(int id) const {
-     for (auto* pelicula : peliculas) {
+     for (Pelicula* pelicula : peliculas) {
          if (pelicula->getId() == id) {
              return pelicula;
          }
@@ -48,7 +48,7 @@ using namespace std;
  }
 
  Serie* Filmoteca::buscarSerie(int id) const {
-     for (auto* serie : series) {
+     for (Serie* serie : series) {
          if (serie->getId() == id) {
              return serie;
          }
@@ -58,7 +58,7 @@ using namespace std;
 
 vector<Pelicula*> Filmoteca::filtrarPeliculasPorGenero(const string& genero) const {
     vector<Pelicula*> resultado;
-    for (auto* pelicula : peliculas) {
+    for (Pelicula* pelicula : peliculas) {
         if (pelicula->getGenero() == genero) {
             resultado.push_back(pelicula);
         }
@@ -76,7 +76,7 @@ vector<Pelicula*> Filmoteca::ordenarPeliculasPorCalificacion() const {
 
 vector<Serie*> Filmoteca::filtrarSeriesPorGenero(const string& genero) const {
     vector<Serie*> resultado;
-    for (auto* serie : series) {
+    for (Serie* serie : series) {
         if (serie->getGenero() == genero) {
             resultado.push_back(serie);
         }
