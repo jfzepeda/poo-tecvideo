@@ -1,15 +1,16 @@
  #include "Contenido.hpp"
  #include <iostream>
  #include "GestorJson.hpp"
+ using namespace std;
 
- Contenido::Contenido(int id, const std::string& nombre, int duracion, const std::string& genero)
+ Contenido::Contenido(int id, const string& nombre, int duracion, const string& genero)
      : id(id), nombre(nombre), duracion(duracion), genero(genero) {
      calificacion = GestorJson::leer(id, true);
  }
 
  void Contenido::mostrarCalificacion(bool actualizado) const {
      if (actualizado) {
-         std::cout << "Calificación media: " << calificacion << std::endl;
+         cout << "Calificación media: " << calificacion << endl;
      }
  }
 
@@ -19,7 +20,7 @@
          calificacion = GestorJson::leer(id);
          mostrarCalificacion(true);
      } else {
-         std::cout << "Calificación inválida. Debe estar entre 0 y 10." << std::endl;
+         cout << "Calificación inválida. Debe estar entre 0 y 10." << endl;
      }
  }
 

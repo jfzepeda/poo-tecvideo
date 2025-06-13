@@ -1,16 +1,17 @@
  #include "Pelicula.hpp"
  #include <iostream>
+ using namespace std;
 
- Pelicula::Pelicula(int id, const std::string& nombre, int duracion, const std::string& genero)
+ Pelicula::Pelicula(int id, const string& nombre, int duracion, const string& genero)
      : Contenido(id, nombre, duracion, genero) {}
 
  void Pelicula::mostrarDetalle() const {
-     std::cout << "\nID: " << id << std::endl;
-     std::cout << "Película: " << nombre << std::endl;
-     std::cout << "Duración: " << duracion << " minutos" << std::endl;
-     std::cout << "Género: " << genero << std::endl;
+     cout << "\nID: " << id << endl;
+     cout << "Película: " << nombre << endl;
+     cout << "Duración: " << duracion << " minutos" << endl;
+     cout << "Género: " << genero << endl;
  }
 
  void Pelicula::mostrarNombre() const {
-     std::cout << "Película: " << nombre << std::endl;
+     cout << "Película: " << nombre << endl;
  }

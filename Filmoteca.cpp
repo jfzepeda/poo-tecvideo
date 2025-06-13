@@ -1,11 +1,12 @@
  #include "Filmoteca.hpp"
  #include <iostream>
+ using namespace std;
 
  void Filmoteca::agregarPelicula(Pelicula* pelicula) {
      if (peliculas.size() < MAX_PELICULAS) {
          peliculas.push_back(pelicula);
      } else {
-         std::cout << "No se pueden agregar más películas." << std::endl;
+         cout << "No se pueden agregar más películas." << endl;
      }
  }
 
@@ -13,19 +14,19 @@
      if (series.size() < MAX_SERIES) {
          series.push_back(serie);
      } else {
-         std::cout << "No se pueden agregar más series." << std::endl;
+         cout << "No se pueden agregar más series." << endl;
      }
  }
 
  void Filmoteca::mostrarPeliculas() const {
-     std::cout << "\nPelículas:" << std::endl;
+     cout << "\nPelículas:" << endl;
      for (const auto* pelicula : peliculas) {
          pelicula->mostrarNombre();
      }
  }
 
  void Filmoteca::mostrarSeries() const {
-     std::cout << "\nSeries:" << std::endl;
+     cout << "\nSeries:" << endl;
      for (const auto* serie : series) {
          serie->mostrarNombre();
      }
