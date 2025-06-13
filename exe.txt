@@ -1,0 +1,9 @@
+g++ -std=c++17 \
+  main.cpp \
+  GestorJson.cpp \
+  Contenido.cpp \
+  Pelicula.cpp \
+  Episodio.cpp \
+  Serie.cpp \
+  Filmoteca.cpp \
+  -o main && ./main
