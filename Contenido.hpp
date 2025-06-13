@@ -1,18 +1,19 @@
  #pragma once
 
  #include <string>
+ using namespace std;
 
  class Contenido {
  protected:
      int id;
-     std::string nombre;
+     string nombre;
      int duracion;
-     std::string genero;
+     string genero;
  private:
      float calificacion;
 
  public:
-     Contenido(int id, const std::string& nombre, int duracion, const std::string& genero);
+     Contenido(int id, const string& nombre, int duracion, const string& genero);
      virtual ~Contenido() = default;
 
      virtual void mostrarDetalle() const = 0;
@@ -22,6 +23,6 @@
      void calificar(float nuevaCalificacion);
 
     int getId() const noexcept;
-    const std::string& getGenero() const noexcept;
+    const string& getGenero() const noexcept;
     float getCalificacion() const noexcept;
 };

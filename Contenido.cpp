@@ -28,7 +28,7 @@
      return id;
  }
 
-const std::string& Contenido::getGenero() const noexcept {
+const string& Contenido::getGenero() const noexcept {
     return genero;
 }
 

@@ -24,8 +24,8 @@
  }
 
  void Serie::agregarEpisodio(const string& titulo) {
-     if (episodios.size() < MAX_EPISODIOS) {
-         int temporada = static_cast<int>(episodios.size()) / EPISODIOS_POR_TEMPORADA + 1;
+     if (episodios.size() < 12) {
+         int temporada = static_cast<int>(episodios.size()) / 4 + 1;
          episodios.emplace_back(titulo, temporada);
      } else {
          cout << "No se pueden agregar más episodios." << endl;
