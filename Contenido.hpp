@@ -21,5 +21,7 @@
      void mostrarCalificacion(bool actualizado = false) const;
      void calificar(float nuevaCalificacion);
 
-     int getId() const noexcept;
+    int getId() const noexcept;
+    const std::string& getGenero() const noexcept;
+    float getCalificacion() const noexcept;
 };

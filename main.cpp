@@ -81,7 +81,31 @@ void handleCalificar(Pelicula* pelicula) {
 }
 
 void handlePeliculas(Filmoteca& filmoteca) {
-    filmoteca.mostrarPeliculas();
+    cout << "\n¿Deseas búsqueda regular o avanzada? (regular/avanzada): ";
+    string modo;
+    cin >> modo;
+    if (modo == "avanzada") {
+        cout << "Opciones avanzadas:\n1. Filtrar por género\n2. Ordenar por calificación\nSelecciona opción (1-2): ";
+        int opcionAvanzada;
+        cin >> opcionAvanzada;
+        if (opcionAvanzada == 1) {
+            cout << "Ingresa el género a filtrar (Accion/Drama/Misterio): ";
+            string genero;
+            cin >> genero;
+            auto filtradas = filmoteca.filtrarPeliculasPorGenero(genero);
+            cout << "\nPelículas filtradas por género " << genero << ":" << endl;
+            for (auto* p : filtradas) p->mostrarNombre();
+        } else if (opcionAvanzada == 2) {
+            auto ordenadas = filmoteca.ordenarPeliculasPorCalificacion();
+            cout << "\nPelículas ordenadas por calificación (de mayor a menor):" << endl;
+            for (auto* p : ordenadas) p->mostrarNombre();
+        } else {
+            cout << "Opción avanzada no válida. Mostrando lista completa.\n";
+            filmoteca.mostrarPeliculas();
+        }
+    } else {
+        filmoteca.mostrarPeliculas();
+    }
     cout << "\nSeleccione una película para mostrar detalles (1-6): ";
     int idPelicula;
     cin >> idPelicula;
@@ -100,7 +124,31 @@ void handlePeliculas(Filmoteca& filmoteca) {
 }
 
 void handleSeries(Filmoteca& filmoteca) {
-    filmoteca.mostrarSeries();
+    cout << "\n¿Deseas búsqueda regular o avanzada? (regular/avanzada): ";
+    string modo;
+    cin >> modo;
+    if (modo == "avanzada") {
+        cout << "Opciones avanzadas:\n1. Filtrar por género\n2. Ordenar por calificación\nSelecciona opción (1-2): ";
+        int opcionAvanzada;
+        cin >> opcionAvanzada;
+        if (opcionAvanzada == 1) {
+            cout << "Ingresa el género a filtrar (Accion/Drama/Misterio): ";
+            string genero;
+            cin >> genero;
+            auto filtradas = filmoteca.filtrarSeriesPorGenero(genero);
+            cout << "\nSeries filtradas por género " << genero << ":" << endl;
+            for (auto* s : filtradas) s->mostrarNombre();
+        } else if (opcionAvanzada == 2) {
+            auto ordenadas = filmoteca.ordenarSeriesPorCalificacion();
+            cout << "\nSeries ordenadas por calificación (de mayor a menor):" << endl;
+            for (auto* s : ordenadas) s->mostrarNombre();
+        } else {
+            cout << "Opción avanzada no válida. Mostrando lista completa.\n";
+            filmoteca.mostrarSeries();
+        }
+    } else {
+        filmoteca.mostrarSeries();
+    }
     cout << "\nSeleccione una serie para mostrar detalles (1-4): ";
     int idSerie;
     cin >> idSerie;

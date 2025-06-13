@@ -27,3 +27,11 @@
  int Contenido::getId() const noexcept {
      return id;
  }
+
+const std::string& Contenido::getGenero() const noexcept {
+    return genero;
+}
+
+float Contenido::getCalificacion() const noexcept {
+    return calificacion;
+}

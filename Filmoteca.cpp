@@ -1,5 +1,6 @@
- #include "Filmoteca.hpp"
- #include <iostream>
+#include "Filmoteca.hpp"
+#include <iostream>
+#include <algorithm>
  using namespace std;
 
  void Filmoteca::agregarPelicula(Pelicula* pelicula) {
@@ -54,3 +55,39 @@
      }
      return nullptr;
  }
+
+std::vector<Pelicula*> Filmoteca::filtrarPeliculasPorGenero(const std::string& genero) const {
+    std::vector<Pelicula*> resultado;
+    for (auto* pelicula : peliculas) {
+        if (pelicula->getGenero() == genero) {
+            resultado.push_back(pelicula);
+        }
+    }
+    return resultado;
+}
+
+std::vector<Pelicula*> Filmoteca::ordenarPeliculasPorCalificacion() const {
+    std::vector<Pelicula*> resultado = peliculas;
+    std::sort(resultado.begin(), resultado.end(), [](Pelicula* a, Pelicula* b) {
+        return a->getCalificacion() > b->getCalificacion();
+    });
+    return resultado;
+}
+
+std::vector<Serie*> Filmoteca::filtrarSeriesPorGenero(const std::string& genero) const {
+    std::vector<Serie*> resultado;
+    for (auto* serie : series) {
+        if (serie->getGenero() == genero) {
+            resultado.push_back(serie);
+        }
+    }
+    return resultado;
+}
+
+std::vector<Serie*> Filmoteca::ordenarSeriesPorCalificacion() const {
+    std::vector<Serie*> resultado = series;
+    std::sort(resultado.begin(), resultado.end(), [](Serie* a, Serie* b) {
+        return a->getCalificacion() > b->getCalificacion();
+    });
+    return resultado;
+}
