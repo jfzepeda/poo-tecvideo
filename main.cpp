@@ -42,6 +42,27 @@ int reproducirVideo(int id) {
     return 0;
 }
 
+int reproducirFoto(int id) {
+    print("\nQuieres ver la serie?  SI / NO");
+    string respuesta;
+    cin >> respuesta;
+    if (respuesta != "SI" && respuesta != "si") {
+        cout << "OK" << endl;
+        return 0;
+    }
+
+    for (int i = 1; i <= 10; i++) {
+        string ruta = "assets/series/serie_" + to_string(i) + ".jpeg";
+        string cmd = string("open \"") + ruta + "\"";
+        int res = system(cmd.c_str());
+        if (res != 0) {
+            cerr << "Error al abrir el vídeo (código " << res << ")\n";
+            return 1;
+        }
+    }
+    return 0;
+}
+
 void handleCalificar(Serie* serie) {
     print("\nQuieres calificar la serie?  SI / NO");
     string respuesta;
@@ -161,6 +182,7 @@ void handleSeries(Filmoteca& filmoteca) {
             serie->mostrarDetalle();
             serie->mostrarEpisodios();
             handleCalificar(serie);
+            reproducirFoto(idSerie);
         } else {
             cout << "Serie no encontrada." << endl;
         }
