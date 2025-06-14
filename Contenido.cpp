@@ -35,3 +35,11 @@ const string& Contenido::getGenero() const noexcept {
 float Contenido::getCalificacion() const noexcept {
     return calificacion;
 }
+
+bool operator>(const Contenido& a, const Contenido& b) {
+    return a.getCalificacion() > b.getCalificacion();
+}
+
+const string& Contenido::getNombre() const {
+    return nombre;
+}

@@ -226,11 +226,12 @@ int main() {
     filmoteca.agregarSerie(&serie4);
 
     while (true) {
-        cout << "\nSeleccione una opción:" << endl;
         cout << "1. Mostrar Películas" << endl;
         cout << "2. Mostrar Series" << endl;
         cout << "3. Mostrar Contenido" << endl;
-        cout << "4. Salir" << endl;
+        cout << "4. Comparar calificación entre dos películas" << endl;
+        cout << "5. Salir" << endl;
+
         int opcion;
         cin >> opcion;
 
@@ -241,12 +242,34 @@ int main() {
         } else if (opcion == 3) {
             handleContenido(filmoteca);
         } else if (opcion == 4) {
+            int id1, id2;
+            cout << "Ingresa el ID de la primera película (1-6): ";
+            cin >> id1;
+            cout << "Ingresa el ID de la segunda película (1-6): ";
+            cin >> id2;
+
+            Pelicula* p1 = filmoteca.buscarPeli(id1);
+            Pelicula* p2 = filmoteca.buscarPeli(id2);
+
+            if (p1 && p2) {
+                cout << "\nComparando:\n";
+                cout << p1->getNombre() << " (Calificación: " << p1->getCalificacion() << ") vs "<< p2->getNombre() << " (Calificación: " << p2->getCalificacion() << ")\n";
+
+                if (*p1 > *p2) {
+                        cout << p1->getNombre() << " tiene mayor calificación.\n";
+                } else if (*p2 > *p1) {
+                        cout << p2->getNombre() << " tiene mayor calificación.\n";
+                } else {
+                        cout << "Ambas películas tienen la misma calificación.\n";
+                }
+            } else {
+                    cout << "Una o ambas películas no fueron encontradas." << endl;
+            }
+        } else if (opcion == 5) {
             break;
         } else {
             cout << "Opción no válida, intente de nuevo." << endl;
         }
-
     }
-
-    return 0;
+return 0;
 }

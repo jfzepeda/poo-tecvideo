@@ -25,4 +25,8 @@
     int getId() const noexcept;
     const string& getGenero() const noexcept;
     float getCalificacion() const noexcept;
+
+    const string& getNombre() const;
 };
+
+bool operator>(const Contenido& a, const Contenido& b);
